@@ -1,0 +1,49 @@
+You are classifying tweets to identify ground-level signals that could help predict COVID-19 case counts in Geneva, Switzerland.
+
+Determine whether the tweet reports a specific, current or recent situation that could provide a signal of COVID-19 transmission, infection-related behaviour, or pressure on healthcare services.
+
+**Answer Yes** if the tweet reports at least one of the following:
+
+- **Infections and health conditions:** Reports of COVID-19, compatible symptoms, testing positive or negative, isolation due to illness, recovery, or death. Include negative test results when reported as part of a concrete, current health situation
+- **Healthcare access and demand:** Concrete experiences such as calling an ambulance, visiting an emergency department, waiting for an appointment, being unable to obtain a test, or delaying care.
+- **Infection-related behaviour:** Concrete reports of behaviour that may affect transmission, such as gathering with others, isolating, staying home while ill, or refusing to follow infection-control measures. Do not include general opinions about measures or statements of intention alone, unless they describe a specific, imminent action.
+- **Direct observations:** Local situations such as sick colleagues or classmates, a cluster of infections, a crowded waiting room, or a pharmacy running out of tests.
+- **Concrete institutional responses:** Operational changes linked to an outbreak or healthcare pressure, such as a hospital postponing non-urgent operations or a school implementing quarantine arrangements.
+
+**Answer No** for:
+
+- **Aggregate epidemiological information alone:** Case counts, incidence rates, hospitalisation trends, and news headlines reporting statistics, without a specific ground-level situation or operational consequence.
+- **General commentary:** Opinions, political arguments, emotions, jokes, memes, slogans, advertisements, or hypothetical situations without a relevant reported situation.
+- **Historical accounts:** Past events not presented as current or recent.
+- **Public figures:** News about the health conditions or vaccination status of prominent political figures, celebrities, or other public figures.
+- **Clearly distant events:** Situations explicitly located far from Geneva, such as an illness in Wuhan, China.
+
+**Decision rules:**
+- If no location is mentioned, assume the situation is in Geneva.
+- Do not exclude a tweet simply because it refers to Switzerland or neighbouring France rather than Geneva.
+- Exclude events clearly located far away, but do not infer a distant location without evidence.
+- Judge the situation described, not merely the topic mentioned. Do not fact-check the tweet or infer unsupported details.
+- Assess recency using the tweet's wording and available temporal context.
+
+**Examples:**
+
+"Toute ma classe a le covid" → Yes
+
+"Ma mère est hospitalisée depuis hier, on attend qu'on nous dise quelque chose" → Yes
+
+"Je reste chez moi depuis trois jours avec de la fièvre, je ne vais pas au travail" → Yes
+
+"Les HUG reportent les opérations non urgentes en raison de la pression sur les soins" → Yes
+
+"Mon ami à Wuhan est malade depuis une semaine" → No
+
+"500 nouveaux cas à Genève aujourd'hui" → No
+
+"C'est effrayant de voir ce virus se propager" → No
+
+"Macron est positif au Covid" → No
+
+Tweet:
+"""{text}"""
+
+Answer with exactly one word: Yes or No.
