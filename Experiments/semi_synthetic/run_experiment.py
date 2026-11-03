@@ -477,7 +477,7 @@ def run_experiment(cfg) -> None:
 
 def parse_args(argv=None):
     p = argparse.ArgumentParser(description="Semi-synthetic tweet-injection experiment.")
-    p.add_argument("--experiment", default='lexicon_xgboost', help="Name of the run; outputs go to outputs/<experiment>/.")
+    p.add_argument("--experiment", default='bert_xgboost', help="Name of the run; outputs go to outputs/<experiment>/.")
     p.add_argument("--dataset_name", default=REFERENCE_DATASET_PKL.name,
                    help="Reference dataset in FINAL_DATASET/ (dispatch features + labels); "
                         "also the prefix of saved synthetic datasets.")
@@ -487,7 +487,7 @@ def parse_args(argv=None):
     p.add_argument("--pool", choices=["informative", "non_informative"], default="informative",
                    help="non_informative = volume control: same counts, uninformative tweets.")
     p.add_argument("--keep_real_informative", action="store_true")
-    p.add_argument("--num_trials", type=int, default=100)
+    p.add_argument("--num_trials", type=int, default=5)
     p.add_argument("--pca_threshold", type=float, default=0.75, help="Used only by the BERT approach.")
     p.add_argument("--feature_window", type=int, default=FEATURE_WINDOW,
                    help="Days of tweet history per feature row: the reference day t plus "
